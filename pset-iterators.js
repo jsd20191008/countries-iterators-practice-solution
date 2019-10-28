@@ -217,3 +217,96 @@ console.log(englishSpeakingCountries)
 /** added for formatting purposes **/
 console.log('')
 console.log('-----------------')
+
+/***********
+Problem 6:
+
+1. Using the `countries` array,
+return the name of the all countries that
+have 4 or more official languages
+
+Save the data in a variable
+called `countriesWithFourOrMoreLanguages`, declared with const
+
+2. Print `countriesWithFourOrMoreLanguages` to the console
+
+************/
+console.log('Problem 6:')
+
+// Add your code below this line
+
+const countriesWithFourOrMoreLanguages = countries.filter((country) => {
+  /*
+    Use .split(",") to split each countries languages string
+    into an array of language codes
+  */
+  const languages = country.languages.split(',')
+
+  /*
+  return the countries where the array of language
+  codes is greater than or equal to 4
+  */
+  return languages.length >= 4
+})
+
+console.log(countriesWithFourOrMoreLanguages)
+
+// Add your code above this line
+
+/** added for formatting purposes **/
+console.log('')
+console.log('-----------------')
+
+/***********
+Problem 7:
+
+1. Using the `countries` array,
+return the average population of all of
+the countries in South America
+
+Save the data in a variable
+called `avgPopulationOfSouthAmericanCountries`, declared with const
+
+2. Print `avgPopulationOfSouthAmericanCountries` to the console
+
+************/
+console.log('Problem 7:')
+
+// Add your code below this line
+
+/*
+  Step 1: Get an array of all South American countries
+*/
+const southAmericanCountries = countries.filter((country) => {
+  return country.continentName === 'South America'
+})
+
+/*
+  Step 2: Use .reduce() to get a total sum of populations of
+  all South American countries
+  We must use the `southAmericanCountries` array from step #1
+  Use 0 as an initial value
+*/
+
+const totalPopOfSouthAmericanCountries = southAmericanCountries.reduce((sum, country) => {
+  // keep a running total of total population
+  // also, we must convert `country.population`
+  // to a number because it originally listed as a string
+  return sum + parseInt(country.population)
+}, 0)
+
+/*
+  Step 3: Calculate average by dividing the total population of all South
+  American countries by the number of South American countries
+*/
+
+const avgPopulationOfSouthAmericanCountries
+  = totalPopOfSouthAmericanCountries / southAmericanCountries.length
+
+console.log(avgPopulationOfSouthAmericanCountries)
+
+// Add your code above this line
+
+/** added for formatting purposes **/
+console.log('')
+console.log('-----------------')
